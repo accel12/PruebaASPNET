@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PruebaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MOV_INVENTARIO">
+          <Key>
+            <PropertyRef Name="COD_CIA" />
+            <PropertyRef Name="COMPANIA_VENTA_3" />
+            <PropertyRef Name="ALMACEN_VENTA" />
+            <PropertyRef Name="TIPO_MOVIMIENTO" />
+            <PropertyRef Name="TIPO_DOCUMENTO" />
+            <PropertyRef Name="NRO_DOCUMENTO" />
+            <PropertyRef Name="COD_ITEM_2" />
+          </Key>
+          <Property Name="COD_CIA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COMPANIA_VENTA_3" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ALMACEN_VENTA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TIPO_MOVIMIENTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TIPO_DOCUMENTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NRO_DOCUMENTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COD_ITEM_2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PROVEEDOR" Type="varchar" MaxLength="50" />
+          <Property Name="ALMACEN_DESTINO" Type="varchar" MaxLength="50" />
+          <Property Name="CANTIDAD" Type="varchar" MaxLength="50" />
+          <Property Name="COMPANIA_DESTINO" Type="varchar" MaxLength="50" />
+          <Property Name="COSTO_UNITARIO" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_REF_1" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_REF_2" Type="varchar" MaxLength="50" />
+          <Property Name="FECHA_TRANSACCION" Type="varchar" MaxLength="50" />
+          <Property Name="MOTIVO" Type="varchar" MaxLength="50" />
+          <Property Name="PRECIO_UNITARIO" Type="varchar" MaxLength="50" />
+          <Property Name="TIPO_DOC_REF" Type="varchar" MaxLength="50" />
+          <Property Name="UM_ITEM_3" Type="varchar" MaxLength="50" />
+          <Property Name="NRO_NOTA" Type="varchar" MaxLength="50" />
+          <Property Name="ROWVERSION" Type="varchar" MaxLength="50" />
+          <Property Name="USUARIO" Type="varchar" MaxLength="50" />
+          <Property Name="MONEDA" Type="varchar" MaxLength="50" />
+          <Property Name="COSTO_UNITARIO_ME" Type="varchar" MaxLength="50" />
+          <Property Name="COS_UNIT_EST" Type="varchar" MaxLength="50" />
+          <Property Name="COS_UNIT_ME_EST" Type="varchar" MaxLength="50" />
+          <Property Name="HORA_TRANSACCION" Type="varchar" MaxLength="50" />
+          <Property Name="F_ORDENCOMPRA" Type="varchar" MaxLength="50" />
+          <Property Name="C_SEC_OC" Type="varchar" MaxLength="50" />
+          <Property Name="C_SEC_DET_OC" Type="varchar" MaxLength="50" />
+          <Property Name="TIPO_DOC_REF_2" Type="varchar" MaxLength="50" />
+          <Property Name="OBSERVACION" Type="varchar" MaxLength="50" />
+          <Property Name="FECHA_VALORIZACION" Type="varchar" MaxLength="50" />
+          <Property Name="USUARIO_VALORIZA" Type="varchar" MaxLength="50" />
+          <Property Name="FACTOR" Type="varchar" MaxLength="50" />
+          <Property Name="COSTOS_ADICIONALES" Type="varchar" MaxLength="50" />
+          <Property Name="T_CAMBIO_VALORIZA" Type="varchar" MaxLength="50" />
+          <Property Name="PERIODO_CERRADO" Type="varchar" MaxLength="50" />
+          <Property Name="PLANILLA_CONSIGNA" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_REF_3" Type="varchar" MaxLength="50" />
+          <Property Name="INGRESO_SALIDA" Type="varchar" MaxLength="50" />
+          <Property Name="SALDO_FINAL" Type="varchar" MaxLength="50" />
+          <Property Name="FLAG_URGENTE" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_REF_4" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_REF_5" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_REF_6" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_REF_7" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_REF_8" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="ACTUALIZAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="TIPO_DOCUMENTO" Type="varchar" Mode="In" />
+          <Parameter Name="NRO_DOCUMENTO" Type="varchar" Mode="In" />
+          <Parameter Name="CANTIDAD" Type="varchar" Mode="In" />
+          <Parameter Name="FECHA_TRANSACCION" Type="varchar" Mode="In" />
+          <Parameter Name="SALDO_FINAL" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AGREGAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="TIPO_DOCUMENTO" Type="varchar" Mode="In" />
+          <Parameter Name="NRO_DOCUMENTO" Type="varchar" Mode="In" />
+          <Parameter Name="CANTIDAD" Type="varchar" Mode="In" />
+          <Parameter Name="FECHA_TRANSACCION" Type="varchar" Mode="In" />
+          <Parameter Name="SALDO_FINAL" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Consultar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NRO_DOCUMENTO" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="PruebaDBModelStoreContainer">
+          <EntitySet Name="MOV_INVENTARIO" EntityType="Self.MOV_INVENTARIO" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PruebaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MOV_INVENTARIO">
+          <Key>
+            <PropertyRef Name="COD_CIA" />
+            <PropertyRef Name="COMPANIA_VENTA_3" />
+            <PropertyRef Name="ALMACEN_VENTA" />
+            <PropertyRef Name="TIPO_MOVIMIENTO" />
+            <PropertyRef Name="TIPO_DOCUMENTO" />
+            <PropertyRef Name="NRO_DOCUMENTO" />
+            <PropertyRef Name="COD_ITEM_2" />
+          </Key>
+          <Property Name="COD_CIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COMPANIA_VENTA_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ALMACEN_VENTA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPO_MOVIMIENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPO_DOCUMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NRO_DOCUMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COD_ITEM_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROVEEDOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALMACEN_DESTINO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COMPANIA_DESTINO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COSTO_UNITARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_REF_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_REF_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_TRANSACCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MOTIVO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRECIO_UNITARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO_DOC_REF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UM_ITEM_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NRO_NOTA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ROWVERSION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MONEDA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COSTO_UNITARIO_ME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COS_UNIT_EST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COS_UNIT_ME_EST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HORA_TRANSACCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_ORDENCOMPRA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_SEC_OC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_SEC_DET_OC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO_DOC_REF_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_VALORIZACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_VALORIZA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FACTOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COSTOS_ADICIONALES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="T_CAMBIO_VALORIZA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERIODO_CERRADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PLANILLA_CONSIGNA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_REF_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INGRESO_SALIDA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SALDO_FINAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FLAG_URGENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_REF_4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_REF_5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_REF_6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_REF_7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_REF_8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PruebaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MOV_INVENTARIO" EntityType="Self.MOV_INVENTARIO" />
+          <FunctionImport Name="Consultar" ReturnType="Collection(PruebaDBModel.Consultar_Result)">
+            <Parameter Name="NRO_DOCUMENTO" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ACTUALIZAR">
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="TIPO_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="NRO_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="CANTIDAD" Mode="In" Type="String" />
+            <Parameter Name="FECHA_TRANSACCION" Mode="In" Type="String" />
+            <Parameter Name="SALDO_FINAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AGREGAR">
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="TIPO_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="NRO_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="CANTIDAD" Mode="In" Type="String" />
+            <Parameter Name="FECHA_TRANSACCION" Mode="In" Type="String" />
+            <Parameter Name="SALDO_FINAL" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Consultar_Result">
+          <Property Type="String" Name="USUARIO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TIPO_DOCUMENTO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NRO_DOCUMENTO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CANTIDAD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FECHA_TRANSACCION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SALDO_FINAL" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PruebaDBModelStoreContainer" CdmEntityContainer="PruebaDBEntities">
+          <EntitySetMapping Name="MOV_INVENTARIO">
+            <EntityTypeMapping TypeName="PruebaDBModel.MOV_INVENTARIO">
+              <MappingFragment StoreEntitySet="MOV_INVENTARIO">
+                <ScalarProperty Name="COD_CIA" ColumnName="COD_CIA" />
+                <ScalarProperty Name="COMPANIA_VENTA_3" ColumnName="COMPANIA_VENTA_3" />
+                <ScalarProperty Name="ALMACEN_VENTA" ColumnName="ALMACEN_VENTA" />
+                <ScalarProperty Name="TIPO_MOVIMIENTO" ColumnName="TIPO_MOVIMIENTO" />
+                <ScalarProperty Name="TIPO_DOCUMENTO" ColumnName="TIPO_DOCUMENTO" />
+                <ScalarProperty Name="NRO_DOCUMENTO" ColumnName="NRO_DOCUMENTO" />
+                <ScalarProperty Name="COD_ITEM_2" ColumnName="COD_ITEM_2" />
+                <ScalarProperty Name="PROVEEDOR" ColumnName="PROVEEDOR" />
+                <ScalarProperty Name="ALMACEN_DESTINO" ColumnName="ALMACEN_DESTINO" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="COMPANIA_DESTINO" ColumnName="COMPANIA_DESTINO" />
+                <ScalarProperty Name="COSTO_UNITARIO" ColumnName="COSTO_UNITARIO" />
+                <ScalarProperty Name="DOC_REF_1" ColumnName="DOC_REF_1" />
+                <ScalarProperty Name="DOC_REF_2" ColumnName="DOC_REF_2" />
+                <ScalarProperty Name="FECHA_TRANSACCION" ColumnName="FECHA_TRANSACCION" />
+                <ScalarProperty Name="MOTIVO" ColumnName="MOTIVO" />
+                <ScalarProperty Name="PRECIO_UNITARIO" ColumnName="PRECIO_UNITARIO" />
+                <ScalarProperty Name="TIPO_DOC_REF" ColumnName="TIPO_DOC_REF" />
+                <ScalarProperty Name="UM_ITEM_3" ColumnName="UM_ITEM_3" />
+                <ScalarProperty Name="NRO_NOTA" ColumnName="NRO_NOTA" />
+                <ScalarProperty Name="ROWVERSION" ColumnName="ROWVERSION" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="MONEDA" ColumnName="MONEDA" />
+                <ScalarProperty Name="COSTO_UNITARIO_ME" ColumnName="COSTO_UNITARIO_ME" />
+                <ScalarProperty Name="COS_UNIT_EST" ColumnName="COS_UNIT_EST" />
+                <ScalarProperty Name="COS_UNIT_ME_EST" ColumnName="COS_UNIT_ME_EST" />
+                <ScalarProperty Name="HORA_TRANSACCION" ColumnName="HORA_TRANSACCION" />
+                <ScalarProperty Name="F_ORDENCOMPRA" ColumnName="F_ORDENCOMPRA" />
+                <ScalarProperty Name="C_SEC_OC" ColumnName="C_SEC_OC" />
+                <ScalarProperty Name="C_SEC_DET_OC" ColumnName="C_SEC_DET_OC" />
+                <ScalarProperty Name="TIPO_DOC_REF_2" ColumnName="TIPO_DOC_REF_2" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="FECHA_VALORIZACION" ColumnName="FECHA_VALORIZACION" />
+                <ScalarProperty Name="USUARIO_VALORIZA" ColumnName="USUARIO_VALORIZA" />
+                <ScalarProperty Name="FACTOR" ColumnName="FACTOR" />
+                <ScalarProperty Name="COSTOS_ADICIONALES" ColumnName="COSTOS_ADICIONALES" />
+                <ScalarProperty Name="T_CAMBIO_VALORIZA" ColumnName="T_CAMBIO_VALORIZA" />
+                <ScalarProperty Name="PERIODO_CERRADO" ColumnName="PERIODO_CERRADO" />
+                <ScalarProperty Name="PLANILLA_CONSIGNA" ColumnName="PLANILLA_CONSIGNA" />
+                <ScalarProperty Name="DOC_REF_3" ColumnName="DOC_REF_3" />
+                <ScalarProperty Name="INGRESO_SALIDA" ColumnName="INGRESO_SALIDA" />
+                <ScalarProperty Name="SALDO_FINAL" ColumnName="SALDO_FINAL" />
+                <ScalarProperty Name="FLAG_URGENTE" ColumnName="FLAG_URGENTE" />
+                <ScalarProperty Name="DOC_REF_4" ColumnName="DOC_REF_4" />
+                <ScalarProperty Name="DOC_REF_5" ColumnName="DOC_REF_5" />
+                <ScalarProperty Name="DOC_REF_6" ColumnName="DOC_REF_6" />
+                <ScalarProperty Name="DOC_REF_7" ColumnName="DOC_REF_7" />
+                <ScalarProperty Name="DOC_REF_8" ColumnName="DOC_REF_8" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Consultar" FunctionName="PruebaDBModel.Store.Consultar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaDBModel.Consultar_Result">
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="TIPO_DOCUMENTO" ColumnName="TIPO_DOCUMENTO" />
+                <ScalarProperty Name="NRO_DOCUMENTO" ColumnName="NRO_DOCUMENTO" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="FECHA_TRANSACCION" ColumnName="FECHA_TRANSACCION" />
+                <ScalarProperty Name="SALDO_FINAL" ColumnName="SALDO_FINAL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ACTUALIZAR" FunctionName="PruebaDBModel.Store.ACTUALIZAR" />
+          <FunctionImportMapping FunctionImportName="AGREGAR" FunctionName="PruebaDBModel.Store.AGREGAR" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

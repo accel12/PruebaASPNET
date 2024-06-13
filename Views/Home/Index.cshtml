@@ -1,0 +1,274 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    @model IEnumerable<WebApplication1.Models.Consultar_Result>
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    thead {
+        background-color: #f2f2f2;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+<div>
+    <p class="text-center">Products</p>
+    <form method="get" action="@Url.Action("Index")">
+        <div style="display:flex;flex-direction:row;gap:20px">
+            <div>
+                <label>Numero Documento</label>
+                <input name="nroDocumento" value="@Request.QueryString["nroDocumento"]" />
+            </div>
+            <div>
+                <label>Usuario</label>
+                <input name="usuario" value="@Request.QueryString["usuario"]" />
+            </div>
+            @*<div>
+                <label>ID</label>
+                <input />
+            </div>*@
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Agregar</button>
+        </div>
+    </form>
+    <p>Product List</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Tipo Documento</th>
+                <th>Numero Documento</th>
+                <th>Cantidad</th>
+                <th>Fecha Transaccion</th>
+                <th>Saldo Final</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) { 
+            <tr>
+                <td>@item.USUARIO</td>
+                <td>@item.TIPO_DOCUMENTO</td>
+                <td>@item.NRO_DOCUMENTO</td>
+                <td>@item.CANTIDAD</td>
+                <td>@item.FECHA_TRANSACCION</td>
+                <td>@item.SALDO_FINAL</td>
+                <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#editModal" data-id="@item.NRO_DOCUMENTO" onclick="editar(`@item.USUARIO`,`@item.TIPO_DOCUMENTO`,`@item.NRO_DOCUMENTO`,`@item.CANTIDAD`,`@item.FECHA_TRANSACCION`,`@item.SALDO_FINAL`)">Editar</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí se cargará el formulario de edición -->
+
+                <div style="display:flex;flex-direction:column;gap:20px">
+                    <div>
+                        <label style="width:140px">Usuario</label>
+                        <input name="usuario" id="usuarioEdit" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Tipo Documento</label>
+                        <input name="usuario" id="tipoDocEdit" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Numero Documento</label>
+                        <input name="usuario" id="nroDocEdit" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Cantidad</label>
+                        <input name="usuario" id="cantEdit" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Fecha Transaccion</label>
+                        <input name="usuario" id="fechaTransEdit" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Saldo Final</label>
+                        <input name="usuario" id="saldoFinalEdit" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" btn btn-primary" onclick="editarModal()">Editar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Agregar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí se cargará el formulario de edición -->
+
+                <div style="display:flex;flex-direction:column;gap:20px">
+                    <div>
+                        <label style="width:140px">Usuario</label>
+                        <input name="usuario" id="usuarioAdd" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Tipo Documento</label>
+                        <input name="usuario" id="tipoDocAdd" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Numero Documento</label>
+                        <input name="usuario" id="nroDocAdd" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Cantidad</label>
+                        <input name="usuario" id="cantAdd" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Fecha Transaccion</label>
+                        <input name="usuario" id="fechaTransAdd" />
+                    </div>
+                    <div>
+                        <label style="width:140px">Saldo Final</label>
+                        <input name="usuario" id="saldoFinalAdd" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" btn btn-primary" onclick="agregarModal()">Agregar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function agregarModal() {
+        var usuarioInputAdd = document.getElementById('usuarioAdd');
+
+        var tipoDocumentoAdd = document.getElementById('tipoDocAdd');
+        var nroDocumentoAdd = document.getElementById('nroDocAdd');
+
+        var cantidadAdd = document.getElementById('cantAdd');
+
+        var fechaTransoAdd = document.getElementById('fechaTransAdd');
+
+        var saldoFinalAdd = document.getElementById('saldoFinalAdd');
+
+        var datoEnviar = {
+            USUARIO: usuarioInputAdd.value,
+            TIPO_DOCUMENTO: tipoDocumentoAdd.value,
+            NRO_DOCUMENTO: nroDocumentoAdd.value,
+            CANTIDAD: cantidadAdd.value,
+            FECHA_TRANSACCION: fechaTransoAdd.value,
+            SALDO_FINAL: saldoFinalAdd.value
+        }
+        var opciones = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datoEnviar)
+        };
+        fetch("/Home/Agregar", opciones)
+            .then(response => response.json())
+            .then(data => {
+                alert("se actualizo")
+            })
+    }
+    function editar(usuario, tipoDocumento, nroDocumento, cantidad, fechaTransaccion, saldoFinal) {
+        
+        var usuarioInput = document.getElementById('usuarioEdit');
+        usuarioInput.value = usuario
+
+        var tipoDocumentoEdit = document.getElementById('tipoDocEdit');
+        tipoDocumentoEdit.value = tipoDocumento
+
+        var nroDocumentoEdit = document.getElementById('nroDocEdit');
+        nroDocumentoEdit.value = nroDocumento
+
+        var cantidadEdit = document.getElementById('cantEdit');
+        cantidadEdit.value = cantidad
+
+        var fechaTransoEdit = document.getElementById('fechaTransEdit');
+        fechaTransoEdit.value = fechaTransaccion
+
+        var saldoFinalEdit = document.getElementById('saldoFinalEdit');
+        saldoFinalEdit.value = saldoFinal
+    }
+    function editarModal() {
+        var usuarioInput = document.getElementById('usuarioEdit');
+
+        var tipoDocumentoEdit = document.getElementById('tipoDocEdit');
+        var nroDocumentoEdit = document.getElementById('nroDocEdit');
+
+        var cantidadEdit = document.getElementById('cantEdit');
+
+        var fechaTransoEdit = document.getElementById('fechaTransEdit');
+
+        var saldoFinalEdit = document.getElementById('saldoFinalEdit');
+        
+        var datoEnviar = {
+            USUARIO: usuarioInput.value,
+            TIPO_DOCUMENTO: tipoDocumentoEdit.value,
+            NRO_DOCUMENTO: nroDocumentoEdit.value,
+            CANTIDAD: cantidadEdit.value,
+            FECHA_TRANSACCION: fechaTransoEdit.value,
+            SALDO_FINAL: saldoFinalEdit.value
+        }
+        var opciones = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datoEnviar)
+        };
+        fetch("/Home/Editar", opciones)
+            .then(response => response.json())
+            .then(data => {
+                alert("se actualizo")
+            })
+    }
+</script>
